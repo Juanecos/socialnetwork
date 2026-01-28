@@ -24,7 +24,7 @@ function EditPost() {
         setTitle(post.title || '');
         setContent(post.content || '');
         
-        // Formatear fecha para input datetime-local
+        //* Formatear fecha para input datetime-local
         if (post.published_date) {
           const date = new Date(post.published_date);
           const tzOffset = date.getTimezoneOffset() * 60000;

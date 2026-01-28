@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16.11-alpine3.23
+    container_name: social-network-postgres
+    environment:
+      POSTGRES_DB: social
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - my-network
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  frontend:
+    build:
+      context: . 
+      dockerfile: frontend/Dockerfile 
+    ports:
+      - "5173:5173" 
+    networks:
+      - my-network
+    env_file:
+      - ./frontend/.env
+    depends_on:
+      - backend 
+  
+  backend:
+    build:
+      context: . 
+      dockerfile: app/Dockerfile 
+    ports:
+      - "3000:3000"
+    networks:
+      - my-network
+    env_file:
+      - ./app/.env
+    depends_on:
+      - postgres
+      - redis
+      - pgadmin
+
+  pgadmin:
+    image: dpage/pgadmin4:9.10.0
+    container_name: social-network-pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - my-network
+    depends_on:
+      - postgres
+  redis:
+    image: redis:latest
+    container_name: social-network-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - my-network
+    volumes:
+      - redis_data:/data
+  
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: social-network-redisinsight
+    restart: always
+    ports:
+      - "5540:5540"
+    volumes:
+      - redisinsight_data:/data
+    networks:
+      - my-network
+    depends_on:
+      - redis
+volumes:
+  pgadmin_data:
+  postgres_data:
+  redis_data:
+  redisinsight_data:
+
+networks:
+  my-network:
+    driver: bridge  # Usamos una red de tipo bridge para que los contenedores se puedan comunicar entre sí

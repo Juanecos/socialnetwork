@@ -23,7 +23,7 @@ const Register = () => {
   const [apiError, setApiError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // Validar formulario cada vez que cambian los datos
+  //* Validar formulario cada vez que cambian los datos
   useEffect(() => {
     const newErrors = validateRegisterForm(formData);
     setErrors(newErrors);
@@ -60,7 +60,7 @@ const Register = () => {
     setApiError('');
     setIsLoading(true);
     
-    // Marcar todos los campos como tocados al intentar enviar
+    //* Marcar todos los campos como tocados al intentar enviar
     setTouched({
       name: true,
       email: true,

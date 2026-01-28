@@ -1,48 +1,48 @@
 import { jwtDecode } from 'jwt-decode';
 
 export const AuthService = {
-  // Guardar token
+  //* Guardar token
   setToken(token) {
     localStorage.setItem('authToken', token);
   },
 
-  // Obtener token
+  //* Obtener token
   getToken() {
     return localStorage.getItem('authToken');
   },
 
-  // Obtener datos del usuario desde el token
+  //* Obtener datos del usuario con el token
   getCurrentUser() {
     const token = this.getToken();
     if (!token) return null;
     try {
       const decoded = jwtDecode(token);
-      return decoded; // Retorna el payload completo: { sub: 1, email: '...', exp: ... }
+      return decoded;
     } catch (error) {
       console.error('Error decodificando token:', error);
       return null;
     }
   },
 
-  // Obtener solo el ID del usuario
+  //* Obtener solo el ID del usuario
   getCurrentUserId() {
     const user = this.getCurrentUser();
     return user ? user.sub : null;
   },
 
-  // Verificar si está autenticado (y token no expirado)
+  //* Verificar si está autenticado (y token no expirado)
   isAuthenticated() {
     const user = this.getCurrentUser();
     if (!user) return false;
     
-    // Verificar expiración si existe el campo exp
+    //* Verificar expiración si existe el campo exp
     if (user.exp) {
       return Date.now() < user.exp * 1000;
     }
     return true;
   },
 
-  // Cerrar sesión
+  //* Cerrar sesión
   logout() {
     localStorage.removeItem('authToken');
     localStorage.removeItem('user');

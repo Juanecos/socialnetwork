@@ -7,15 +7,15 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: 'http://localhost:5173', // cambiar cuando use docker
+    origin: '*',
     credentials: true,
   });
 
   const config = new DocumentBuilder()
-    .setTitle('API de ejemplo') // Título de la API
-    .setDescription('Descripción de la API') // Descripción de la API
-    .setVersion('1.0') // Versión de la API
-    .addTag('posts') // Etiqueta para agrupar rutas relacionadas (opcional)
+    .setTitle('API de ejemplo')
+    .setDescription('Descripción de la API')
+    .setVersion('1.0')
+    .addTag('posts')
     .build();
 
     const document = SwaggerModule.createDocument(app, config);

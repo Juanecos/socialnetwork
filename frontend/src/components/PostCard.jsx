@@ -5,12 +5,12 @@ import Button from './Button';
 const PostCard = ({ post, onEditClick, onDeleteClick, currentUserId }) => {
   const isOwner = post.userId === parseInt(currentUserId);
 
-  // Helper para obtener nombre a mostrar
+  //* Helper para obtener nombre a mostrar
   const getAuthorName = () => {
     return post.user?.profile?.name || post.user?.email || 'Usuario desconocido';
   };
 
-  // Helper para obtener inicial
+  //* Helper para obtener inicial
   const getAuthorInitial = () => {
     const name = post.user?.profile?.name;
     if (name) return name.charAt(0).toUpperCase();
@@ -21,7 +21,7 @@ const PostCard = ({ post, onEditClick, onDeleteClick, currentUserId }) => {
     return '?';
   };
 
-  // Helper para formatear fecha
+  //* Helper para formatear fecha
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString();
   };
@@ -29,7 +29,6 @@ const PostCard = ({ post, onEditClick, onDeleteClick, currentUserId }) => {
   return (
     <Card hover className="flex flex-col h-full">
       <div className="flex-1">
-        {/* Header con Info del Autor */}
         <div className="flex items-center mb-4">
           <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-primary-500 font-bold mr-3 border border-slate-700 shrink-0">
             {getAuthorInitial()}
@@ -44,7 +43,6 @@ const PostCard = ({ post, onEditClick, onDeleteClick, currentUserId }) => {
           </div>
         </div>
 
-        {/* Contenido del Post */}
         <div className="flex items-start justify-between mb-3">
           <h3 className="text-xl font-bold text-slate-100 line-clamp-2">
             {post.title}
@@ -63,7 +61,6 @@ const PostCard = ({ post, onEditClick, onDeleteClick, currentUserId }) => {
         )}
       </div>
       
-      {/* Footer del Post */}
       <div className="flex items-center justify-between pt-4 border-t border-slate-700 mt-auto">
         <span className="text-sm text-slate-500">
           {formatDate(post.created_at)}

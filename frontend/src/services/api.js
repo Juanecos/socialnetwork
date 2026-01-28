@@ -8,10 +8,10 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000, // 10 segundos
+  timeout: 10000,
 });
 
-// Interceptor para agregar token de autenticación si existe
+//* Interceptor para agregar token de autenticación si existe
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('authToken');
@@ -25,7 +25,7 @@ api.interceptors.request.use(
   }
 );
 
-// Interceptor para manejar errores de respuesta
+//* Interceptor para manejar errores de respuesta
 api.interceptors.response.use(
   (response) => response,
   (error) => {

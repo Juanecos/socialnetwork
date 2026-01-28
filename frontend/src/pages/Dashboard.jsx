@@ -14,7 +14,6 @@ function Dashboard() {
   const currentUserId = AuthService.getCurrentUserId();
 
   useEffect(() => {
-    // Solicitar las publicaciones desde el servicio
     const fetchPosts = async () => {
       try {
         const data = await PostService.getAll();
@@ -57,7 +56,6 @@ function Dashboard() {
           </Button>
         </div>
 
-        {/* Posts Grid */}
         {loading ? (
           <div className="text-center py-12">
             <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-primary-500 border-t-transparent"></div>

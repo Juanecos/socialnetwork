@@ -61,11 +61,6 @@ const Navbar = () => {
               </Button>
             )}
             
-            {!isAuthenticated && (
-              <div className="hidden">
-                 {/* Links removed as requested */}
-              </div>
-            )}
           </div>
         </div>
       </div>
