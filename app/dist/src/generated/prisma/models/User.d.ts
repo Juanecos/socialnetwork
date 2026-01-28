@@ -133,7 +133,7 @@ export type UserWhereInput = {
     updated_at?: Prisma.DateTimeFilter<"User"> | Date | string;
     deleted_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null;
     profile?: Prisma.XOR<Prisma.ProfileNullableScalarRelationFilter, Prisma.ProfileWhereInput> | null;
-    posts?: Prisma.PostListRelationFilter;
+    posts?: Prisma.PublicacionListRelationFilter;
 };
 export type UserOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
@@ -144,7 +144,7 @@ export type UserOrderByWithRelationInput = {
     updated_at?: Prisma.SortOrder;
     deleted_at?: Prisma.SortOrderInput | Prisma.SortOrder;
     profile?: Prisma.ProfileOrderByWithRelationInput;
-    posts?: Prisma.PostOrderByRelationAggregateInput;
+    posts?: Prisma.PublicacionOrderByRelationAggregateInput;
 };
 export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number;
@@ -158,7 +158,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
     updated_at?: Prisma.DateTimeFilter<"User"> | Date | string;
     deleted_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null;
     profile?: Prisma.XOR<Prisma.ProfileNullableScalarRelationFilter, Prisma.ProfileWhereInput> | null;
-    posts?: Prisma.PostListRelationFilter;
+    posts?: Prisma.PublicacionListRelationFilter;
 }, "id" | "email">;
 export type UserOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
@@ -194,7 +194,7 @@ export type UserCreateInput = {
     updated_at?: Date | string;
     deleted_at?: Date | string | null;
     profile?: Prisma.ProfileCreateNestedOneWithoutUserInput;
-    posts?: Prisma.PostCreateNestedManyWithoutUserInput;
+    posts?: Prisma.PublicacionCreateNestedManyWithoutUserInput;
 };
 export type UserUncheckedCreateInput = {
     id?: number;
@@ -205,7 +205,7 @@ export type UserUncheckedCreateInput = {
     updated_at?: Date | string;
     deleted_at?: Date | string | null;
     profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput;
-    posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput;
+    posts?: Prisma.PublicacionUncheckedCreateNestedManyWithoutUserInput;
 };
 export type UserUpdateInput = {
     email?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -215,7 +215,7 @@ export type UserUpdateInput = {
     updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
     profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput;
-    posts?: Prisma.PostUpdateManyWithoutUserNestedInput;
+    posts?: Prisma.PublicacionUpdateManyWithoutUserNestedInput;
 };
 export type UserUncheckedUpdateInput = {
     id?: Prisma.IntFieldUpdateOperationsInput | number;
@@ -226,7 +226,7 @@ export type UserUncheckedUpdateInput = {
     updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
     profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput;
-    posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput;
+    posts?: Prisma.PublicacionUncheckedUpdateManyWithoutUserNestedInput;
 };
 export type UserCreateManyInput = {
     id?: number;
@@ -341,7 +341,7 @@ export type UserCreateWithoutProfileInput = {
     created_at?: Date | string;
     updated_at?: Date | string;
     deleted_at?: Date | string | null;
-    posts?: Prisma.PostCreateNestedManyWithoutUserInput;
+    posts?: Prisma.PublicacionCreateNestedManyWithoutUserInput;
 };
 export type UserUncheckedCreateWithoutProfileInput = {
     id?: number;
@@ -351,7 +351,7 @@ export type UserUncheckedCreateWithoutProfileInput = {
     created_at?: Date | string;
     updated_at?: Date | string;
     deleted_at?: Date | string | null;
-    posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput;
+    posts?: Prisma.PublicacionUncheckedCreateNestedManyWithoutUserInput;
 };
 export type UserCreateOrConnectWithoutProfileInput = {
     where: Prisma.UserWhereUniqueInput;
@@ -373,7 +373,7 @@ export type UserUpdateWithoutProfileInput = {
     created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
-    posts?: Prisma.PostUpdateManyWithoutUserNestedInput;
+    posts?: Prisma.PublicacionUpdateManyWithoutUserNestedInput;
 };
 export type UserUncheckedUpdateWithoutProfileInput = {
     id?: Prisma.IntFieldUpdateOperationsInput | number;
@@ -383,7 +383,7 @@ export type UserUncheckedUpdateWithoutProfileInput = {
     created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
-    posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput;
+    posts?: Prisma.PublicacionUncheckedUpdateManyWithoutUserNestedInput;
 };
 export type UserCreateWithoutPostsInput = {
     email: string;
@@ -446,7 +446,7 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
     select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null;
 };
 export type UserCountOutputTypeCountPostsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-    where?: Prisma.PostWhereInput;
+    where?: Prisma.PublicacionWhereInput;
 };
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
@@ -499,7 +499,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     name: "User";
     objects: {
         profile: Prisma.$ProfilePayload<ExtArgs> | null;
-        posts: Prisma.$PostPayload<ExtArgs>[];
+        posts: Prisma.$PublicacionPayload<ExtArgs>[];
     };
     scalars: runtime.Types.Extensions.GetPayloadResult<{
         id: number;
@@ -562,7 +562,7 @@ export interface UserDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise";
     profile<T extends Prisma.User$profileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$profileArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
-    posts<T extends Prisma.User$postsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    posts<T extends Prisma.User$postsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PublicacionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
     catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
     finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
@@ -681,15 +681,15 @@ export type User$profileArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
     where?: Prisma.ProfileWhereInput;
 };
 export type User$postsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-    select?: Prisma.PostSelect<ExtArgs> | null;
-    omit?: Prisma.PostOmit<ExtArgs> | null;
-    include?: Prisma.PostInclude<ExtArgs> | null;
-    where?: Prisma.PostWhereInput;
-    orderBy?: Prisma.PostOrderByWithRelationInput | Prisma.PostOrderByWithRelationInput[];
-    cursor?: Prisma.PostWhereUniqueInput;
+    select?: Prisma.PublicacionSelect<ExtArgs> | null;
+    omit?: Prisma.PublicacionOmit<ExtArgs> | null;
+    include?: Prisma.PublicacionInclude<ExtArgs> | null;
+    where?: Prisma.PublicacionWhereInput;
+    orderBy?: Prisma.PublicacionOrderByWithRelationInput | Prisma.PublicacionOrderByWithRelationInput[];
+    cursor?: Prisma.PublicacionWhereUniqueInput;
     take?: number;
     skip?: number;
-    distinct?: Prisma.PostScalarFieldEnum | Prisma.PostScalarFieldEnum[];
+    distinct?: Prisma.PublicacionScalarFieldEnum | Prisma.PublicacionScalarFieldEnum[];
 };
 export type UserDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.UserSelect<ExtArgs> | null;

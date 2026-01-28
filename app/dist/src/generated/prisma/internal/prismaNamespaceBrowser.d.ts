@@ -13,7 +13,7 @@ export declare const AnyNull: import("@prisma/client-runtime-utils").AnyNullClas
 export declare const ModelName: {
     readonly User: "User";
     readonly Profile: "Profile";
-    readonly Post: "Post";
+    readonly Publicacion: "Publicacion";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export declare const TransactionIsolationLevel: {
@@ -44,7 +44,7 @@ export declare const ProfileScalarFieldEnum: {
     readonly deleted_at: "deleted_at";
 };
 export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum];
-export declare const PostScalarFieldEnum: {
+export declare const PublicacionScalarFieldEnum: {
     readonly id: "id";
     readonly title: "title";
     readonly content: "content";
@@ -52,7 +52,7 @@ export declare const PostScalarFieldEnum: {
     readonly userId: "userId";
     readonly created_at: "created_at";
 };
-export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum];
+export type PublicacionScalarFieldEnum = (typeof PublicacionScalarFieldEnum)[keyof typeof PublicacionScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";

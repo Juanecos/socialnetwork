@@ -8,4 +8,4 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma };
 export type User = Prisma.UserModel;
 export type Profile = Prisma.ProfileModel;
-export type Post = Prisma.PostModel;
+export type Publicacion = Prisma.PublicacionModel;

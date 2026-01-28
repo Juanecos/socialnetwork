@@ -4,4 +4,4 @@ export * as $Enums from './enums.js';
 export * from './enums.js';
 export type User = Prisma.UserModel;
 export type Profile = Prisma.ProfileModel;
-export type Post = Prisma.PostModel;
+export type Publicacion = Prisma.PublicacionModel;

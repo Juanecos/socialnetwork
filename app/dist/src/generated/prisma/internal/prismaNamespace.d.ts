@@ -159,7 +159,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export declare const ModelName: {
     readonly User: "User";
     readonly Profile: "Profile";
-    readonly Post: "Post";
+    readonly Publicacion: "Publicacion";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export interface TypeMapCb<GlobalOmitOptions = {}> extends runtime.Types.Utils.Fn<{
@@ -172,7 +172,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         omit: GlobalOmitOptions;
     };
     meta: {
-        modelProps: "user" | "profile" | "post";
+        modelProps: "user" | "profile" | "publicacion";
         txIsolationLevel: TransactionIsolationLevel;
     };
     model: {
@@ -324,77 +324,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
                 };
             };
         };
-        Post: {
-            payload: Prisma.$PostPayload<ExtArgs>;
-            fields: Prisma.PostFieldRefs;
+        Publicacion: {
+            payload: Prisma.$PublicacionPayload<ExtArgs>;
+            fields: Prisma.PublicacionFieldRefs;
             operations: {
                 findUnique: {
-                    args: Prisma.PostFindUniqueArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload> | null;
+                    args: Prisma.PublicacionFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload> | null;
                 };
                 findUniqueOrThrow: {
-                    args: Prisma.PostFindUniqueOrThrowArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload>;
+                    args: Prisma.PublicacionFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload>;
                 };
                 findFirst: {
-                    args: Prisma.PostFindFirstArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload> | null;
+                    args: Prisma.PublicacionFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload> | null;
                 };
                 findFirstOrThrow: {
-                    args: Prisma.PostFindFirstOrThrowArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload>;
+                    args: Prisma.PublicacionFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload>;
                 };
                 findMany: {
-                    args: Prisma.PostFindManyArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload>[];
+                    args: Prisma.PublicacionFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload>[];
                 };
                 create: {
-                    args: Prisma.PostCreateArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload>;
+                    args: Prisma.PublicacionCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload>;
                 };
                 createMany: {
-                    args: Prisma.PostCreateManyArgs<ExtArgs>;
+                    args: Prisma.PublicacionCreateManyArgs<ExtArgs>;
                     result: BatchPayload;
                 };
                 createManyAndReturn: {
-                    args: Prisma.PostCreateManyAndReturnArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload>[];
+                    args: Prisma.PublicacionCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload>[];
                 };
                 delete: {
-                    args: Prisma.PostDeleteArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload>;
+                    args: Prisma.PublicacionDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload>;
                 };
                 update: {
-                    args: Prisma.PostUpdateArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload>;
+                    args: Prisma.PublicacionUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload>;
                 };
                 deleteMany: {
-                    args: Prisma.PostDeleteManyArgs<ExtArgs>;
+                    args: Prisma.PublicacionDeleteManyArgs<ExtArgs>;
                     result: BatchPayload;
                 };
                 updateMany: {
-                    args: Prisma.PostUpdateManyArgs<ExtArgs>;
+                    args: Prisma.PublicacionUpdateManyArgs<ExtArgs>;
                     result: BatchPayload;
                 };
                 updateManyAndReturn: {
-                    args: Prisma.PostUpdateManyAndReturnArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload>[];
+                    args: Prisma.PublicacionUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload>[];
                 };
                 upsert: {
-                    args: Prisma.PostUpsertArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PostPayload>;
+                    args: Prisma.PublicacionUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicacionPayload>;
                 };
                 aggregate: {
-                    args: Prisma.PostAggregateArgs<ExtArgs>;
-                    result: runtime.Types.Utils.Optional<Prisma.AggregatePost>;
+                    args: Prisma.PublicacionAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregatePublicacion>;
                 };
                 groupBy: {
-                    args: Prisma.PostGroupByArgs<ExtArgs>;
-                    result: runtime.Types.Utils.Optional<Prisma.PostGroupByOutputType>[];
+                    args: Prisma.PublicacionGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.PublicacionGroupByOutputType>[];
                 };
                 count: {
-                    args: Prisma.PostCountArgs<ExtArgs>;
-                    result: runtime.Types.Utils.Optional<Prisma.PostCountAggregateOutputType> | number;
+                    args: Prisma.PublicacionCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.PublicacionCountAggregateOutputType> | number;
                 };
             };
         };
@@ -450,7 +450,7 @@ export declare const ProfileScalarFieldEnum: {
     readonly deleted_at: "deleted_at";
 };
 export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum];
-export declare const PostScalarFieldEnum: {
+export declare const PublicacionScalarFieldEnum: {
     readonly id: "id";
     readonly title: "title";
     readonly content: "content";
@@ -458,7 +458,7 @@ export declare const PostScalarFieldEnum: {
     readonly userId: "userId";
     readonly created_at: "created_at";
 };
-export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum];
+export type PublicacionScalarFieldEnum = (typeof PublicacionScalarFieldEnum)[keyof typeof PublicacionScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";
@@ -509,7 +509,7 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
     user?: Prisma.UserOmit;
     profile?: Prisma.ProfileOmit;
-    post?: Prisma.PostOmit;
+    publicacion?: Prisma.PublicacionOmit;
 };
 export type LogLevel = 'info' | 'query' | 'warn' | 'error';
 export type LogDefinition = {

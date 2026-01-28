@@ -25,14 +25,14 @@ export class AuthService {
   }
 
   async register(dto: RegisterDto) {
-    //* 1. Obtener usuarios con perfil ya existente
+    //** 1. Obtener usuarios con perfil ya existente
     const existingProfile = await this.usersService.findUserByEmail(dto.email);
     if (existingProfile) {
       throw new BadRequestException(
         this.getExistingProfileException(existingProfile),
       );
     }
-    //* 2. Crear el usuario con la contraseña hasheada
+    //** 2. Crear el usuario con la contraseña hasheada
     const hashedPassword = await this.hashService.hash(dto.password);
     const user = await this.usersService.create({
       email: dto.email,
@@ -40,12 +40,12 @@ export class AuthService {
       profile: dto.profile,
     });
 
-    //* 3. Validar creacion y obtener el usuario
+    //** 3. Validar creacion y obtener el usuario
     const fullUser = await this.usersService.findOne(user.id);
     if (!fullUser) {
       throw new Error('Unexpected: user not found after creation');
     }
-    //* 4. Generar token de autenticacion jwt
+    //** 4. Generar token de autenticacion jwt
     const token = this.generateToken({
       sub: fullUser.id,
       email: dto.email,
@@ -63,20 +63,20 @@ export class AuthService {
       throw new BadRequestException('El email es requerido');
     }
 
-    // Validar que la contraseña no esté vacía
+    //** Validar que la contraseña no esté vacía
     if (!dto.password || dto.password.trim() === '') {
       throw new BadRequestException('La contraseña es requerida');
     }
 
-    // Buscar el usuario y validar la contraseña
+    //* Buscar el usuario y validar la contraseña
     const user = await this.validateUser(dto.email, dto.password);
 
     if (!user) {
       throw new UnauthorizedException('Credenciales inválidas.');
     }
-    const refreshTime = 7 * 24 * 60; //en minutos
+    const refreshTime = 7 * 24 * 60; //*en minutos
     const tokenTime = 15;
-    // Generar el token JWT
+    //* Generar el token JWT
     const accessToken = this.generateToken({
       sub: user.id,
       email: user.email,
@@ -109,15 +109,13 @@ export class AuthService {
   }
 
   async validateUser(email: string, password: string) {
-    // 1. Buscar el perfil por email
-    console.log(email);
-    console.log(password);
+    //* 1. Buscar el perfil por email
 
     const user = await this.usersService.findUserByEmail(email);
     if (!user) {
-      return null; // Si no se encuentra el perfil, retornar null
+      return null; //* Si no se encuentra el perfil, retornar null
     }
-    // 2. Verificar si el perfil está activo o eliminado
+    //* 2. Verificar si el perfil está activo o eliminado
     if (!user.is_active || user.deleted_at) {
       return null;
     }
@@ -127,7 +125,7 @@ export class AuthService {
     );
 
     if (!passwordValid) {
-      throw new UnauthorizedException('Credenciales inválidas'); // Lanzar excepción si las contraseñas no coinciden
+      throw new UnauthorizedException('Credenciales inválidas'); //* Lanzar excepción si las contraseñas no coinciden
     }
     return user;
   }

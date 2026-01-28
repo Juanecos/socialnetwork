@@ -16,12 +16,13 @@ const prisma_service_1 = require("./common/prisma/prisma.service");
 const common_module_1 = require("./common/common.module");
 const auth_module_1 = require("./auth/auth.module");
 const cache_module_1 = require("./cache/cache/cache.module");
+const publicacion_module_1 = require("./publicacion/publicacion.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [users_module_1.UsersModule, common_module_1.CommonModule, cache_module_1.CacheModule, auth_module_1.AuthModule, cache_module_1.CacheModule],
+        imports: [users_module_1.UsersModule, common_module_1.CommonModule, cache_module_1.CacheModule, auth_module_1.AuthModule, cache_module_1.CacheModule, publicacion_module_1.PublicacionModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService, redis_service_1.RedisService, prisma_service_1.PrismaService],
     })

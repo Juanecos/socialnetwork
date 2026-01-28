@@ -28,7 +28,7 @@ export type User = Prisma.UserModel
  */
 export type Profile = Prisma.ProfileModel
 /**
- * Model Post
+ * Model Publicacion
  * 
  */
-export type Post = Prisma.PostModel
+export type Publicacion = Prisma.PublicacionModel
