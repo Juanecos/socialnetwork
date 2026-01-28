@@ -1,0 +1,1 @@
+inicializar el proyecto con docker compose up -d
