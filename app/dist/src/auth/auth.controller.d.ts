@@ -1,9 +1,11 @@
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
+import { JwtService } from '@nestjs/jwt';
 export declare class AuthController {
     private readonly authService;
-    constructor(authService: AuthService);
+    private readonly jwtService;
+    constructor(authService: AuthService, jwtService: JwtService);
     register(dto: RegisterDto): Promise<{
         message: string;
         user: {
@@ -50,7 +52,8 @@ export declare class AuthController {
             updated_at: Date;
             deleted_at: Date | null;
         };
-        acessToken: string;
+        accessToken: string;
         refreshToken: string;
     }>;
+    logout(authHeader: string): Promise<void>;
 }

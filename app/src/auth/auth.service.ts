@@ -103,7 +103,7 @@ export class AuthService {
     return {
       message: 'Login exitoso',
       user: user,
-      acessToken: accessToken,
+      accessToken: accessToken,
       refreshToken: refreshToken,
     };
   }

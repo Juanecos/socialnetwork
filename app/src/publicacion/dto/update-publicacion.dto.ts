@@ -12,4 +12,8 @@ export class UpdatePublicacionDto {
   @IsOptional()
   @IsBoolean()
   published?: boolean;
+
+  @IsOptional()
+  @IsString()
+  published_date?: string;
 }

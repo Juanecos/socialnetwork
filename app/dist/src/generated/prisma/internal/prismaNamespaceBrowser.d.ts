@@ -50,6 +50,7 @@ export declare const PublicacionScalarFieldEnum: {
     readonly content: "content";
     readonly published: "published";
     readonly userId: "userId";
+    readonly published_date: "published_date";
     readonly created_at: "created_at";
 };
 export type PublicacionScalarFieldEnum = (typeof PublicacionScalarFieldEnum)[keyof typeof PublicacionScalarFieldEnum];

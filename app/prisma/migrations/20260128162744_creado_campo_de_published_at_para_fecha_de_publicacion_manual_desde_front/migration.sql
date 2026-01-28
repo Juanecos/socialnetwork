@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Publicacion" ADD COLUMN     "published_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

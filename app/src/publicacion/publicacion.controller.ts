@@ -21,6 +21,10 @@ export class PublicacionController {
   findOne(@Param('id') id: string) {
     return this.publicacionService.findOne(+id);
   }
+  @Get('user/:userId')
+  findUserPublicaciones(@Param('userId') userId: string) {
+    return this.publicacionService.findUserPublicaciones(+userId);
+  }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePublicacionDto: UpdatePublicacionDto) {

@@ -1,1 +1,12 @@
 inicializar el proyecto con docker compose up -d
+
+-- backend
+npm i -g @nestjs/cli
+npm install
+npx prisma migrate dev --name init
+npm start
+
+-- frontend
+npm i -g vite
+npm i -g tailwindcss
+npm install

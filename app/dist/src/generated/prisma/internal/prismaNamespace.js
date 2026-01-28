@@ -95,6 +95,7 @@ exports.PublicacionScalarFieldEnum = {
     content: 'content',
     published: 'published',
     userId: 'userId',
+    published_date: 'published_date',
     created_at: 'created_at'
 };
 exports.SortOrder = {

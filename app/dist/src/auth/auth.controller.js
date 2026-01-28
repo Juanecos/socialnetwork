@@ -17,16 +17,33 @@ const common_1 = require("@nestjs/common");
 const auth_service_1 = require("./auth.service");
 const login_dto_1 = require("./dto/login.dto");
 const register_dto_1 = require("./dto/register.dto");
+const jwt_1 = require("@nestjs/jwt");
 let AuthController = class AuthController {
     authService;
-    constructor(authService) {
+    jwtService;
+    constructor(authService, jwtService) {
         this.authService = authService;
+        this.jwtService = jwtService;
     }
     register(dto) {
         return this.authService.register(dto);
     }
     login(dto) {
         return this.authService.login(dto);
+    }
+    async logout(authHeader) {
+        if (!authHeader) {
+            throw new common_1.UnauthorizedException('No token provided');
+        }
+        const token = authHeader.split(' ')[1];
+        if (!token) {
+            throw new common_1.UnauthorizedException('Invalid token format');
+        }
+        const decoded = this.jwtService.decode(token);
+        if (!decoded || !decoded.sub) {
+            throw new common_1.UnauthorizedException('Invalid token');
+        }
+        return this.authService.logout(decoded.sub, token);
     }
 };
 exports.AuthController = AuthController;
@@ -44,8 +61,16 @@ __decorate([
     __metadata("design:paramtypes", [login_dto_1.LoginDto]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "login", null);
+__decorate([
+    (0, common_1.Post)('logout'),
+    __param(0, (0, common_1.Headers)('authorization')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "logout", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
+    __metadata("design:paramtypes", [auth_service_1.AuthService,
+        jwt_1.JwtService])
 ], AuthController);
 //# sourceMappingURL=auth.controller.js.map

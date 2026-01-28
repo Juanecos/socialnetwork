@@ -42,6 +42,7 @@ export type PublicacionMinAggregateOutputType = {
   content: string | null
   published: boolean | null
   userId: number | null
+  published_date: Date | null
   created_at: Date | null
 }
 
@@ -51,6 +52,7 @@ export type PublicacionMaxAggregateOutputType = {
   content: string | null
   published: boolean | null
   userId: number | null
+  published_date: Date | null
   created_at: Date | null
 }
 
@@ -60,6 +62,7 @@ export type PublicacionCountAggregateOutputType = {
   content: number
   published: number
   userId: number
+  published_date: number
   created_at: number
   _all: number
 }
@@ -81,6 +84,7 @@ export type PublicacionMinAggregateInputType = {
   content?: true
   published?: true
   userId?: true
+  published_date?: true
   created_at?: true
 }
 
@@ -90,6 +94,7 @@ export type PublicacionMaxAggregateInputType = {
   content?: true
   published?: true
   userId?: true
+  published_date?: true
   created_at?: true
 }
 
@@ -99,6 +104,7 @@ export type PublicacionCountAggregateInputType = {
   content?: true
   published?: true
   userId?: true
+  published_date?: true
   created_at?: true
   _all?: true
 }
@@ -195,6 +201,7 @@ export type PublicacionGroupByOutputType = {
   content: string | null
   published: boolean | null
   userId: number
+  published_date: Date
   created_at: Date
   _count: PublicacionCountAggregateOutputType | null
   _avg: PublicacionAvgAggregateOutputType | null
@@ -227,6 +234,7 @@ export type PublicacionWhereInput = {
   content?: Prisma.StringNullableFilter<"Publicacion"> | string | null
   published?: Prisma.BoolNullableFilter<"Publicacion"> | boolean | null
   userId?: Prisma.IntFilter<"Publicacion"> | number
+  published_date?: Prisma.DateTimeFilter<"Publicacion"> | Date | string
   created_at?: Prisma.DateTimeFilter<"Publicacion"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
@@ -237,6 +245,7 @@ export type PublicacionOrderByWithRelationInput = {
   content?: Prisma.SortOrderInput | Prisma.SortOrder
   published?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
+  published_date?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
 }
@@ -250,6 +259,7 @@ export type PublicacionWhereUniqueInput = Prisma.AtLeast<{
   content?: Prisma.StringNullableFilter<"Publicacion"> | string | null
   published?: Prisma.BoolNullableFilter<"Publicacion"> | boolean | null
   userId?: Prisma.IntFilter<"Publicacion"> | number
+  published_date?: Prisma.DateTimeFilter<"Publicacion"> | Date | string
   created_at?: Prisma.DateTimeFilter<"Publicacion"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
@@ -260,6 +270,7 @@ export type PublicacionOrderByWithAggregationInput = {
   content?: Prisma.SortOrderInput | Prisma.SortOrder
   published?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
+  published_date?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.PublicacionCountOrderByAggregateInput
   _avg?: Prisma.PublicacionAvgOrderByAggregateInput
@@ -277,6 +288,7 @@ export type PublicacionScalarWhereWithAggregatesInput = {
   content?: Prisma.StringNullableWithAggregatesFilter<"Publicacion"> | string | null
   published?: Prisma.BoolNullableWithAggregatesFilter<"Publicacion"> | boolean | null
   userId?: Prisma.IntWithAggregatesFilter<"Publicacion"> | number
+  published_date?: Prisma.DateTimeWithAggregatesFilter<"Publicacion"> | Date | string
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Publicacion"> | Date | string
 }
 
@@ -284,6 +296,7 @@ export type PublicacionCreateInput = {
   title: string
   content?: string | null
   published?: boolean | null
+  published_date?: Date | string
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutPostsInput
 }
@@ -294,6 +307,7 @@ export type PublicacionUncheckedCreateInput = {
   content?: string | null
   published?: boolean | null
   userId: number
+  published_date?: Date | string
   created_at?: Date | string
 }
 
@@ -301,6 +315,7 @@ export type PublicacionUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  published_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
 }
@@ -311,6 +326,7 @@ export type PublicacionUncheckedUpdateInput = {
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   userId?: Prisma.IntFieldUpdateOperationsInput | number
+  published_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -320,6 +336,7 @@ export type PublicacionCreateManyInput = {
   content?: string | null
   published?: boolean | null
   userId: number
+  published_date?: Date | string
   created_at?: Date | string
 }
 
@@ -327,6 +344,7 @@ export type PublicacionUpdateManyMutationInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  published_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -336,6 +354,7 @@ export type PublicacionUncheckedUpdateManyInput = {
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   userId?: Prisma.IntFieldUpdateOperationsInput | number
+  published_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -355,6 +374,7 @@ export type PublicacionCountOrderByAggregateInput = {
   content?: Prisma.SortOrder
   published?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  published_date?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -369,6 +389,7 @@ export type PublicacionMaxOrderByAggregateInput = {
   content?: Prisma.SortOrder
   published?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  published_date?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -378,6 +399,7 @@ export type PublicacionMinOrderByAggregateInput = {
   content?: Prisma.SortOrder
   published?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  published_date?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -440,6 +462,7 @@ export type PublicacionCreateWithoutUserInput = {
   title: string
   content?: string | null
   published?: boolean | null
+  published_date?: Date | string
   created_at?: Date | string
 }
 
@@ -448,6 +471,7 @@ export type PublicacionUncheckedCreateWithoutUserInput = {
   title: string
   content?: string | null
   published?: boolean | null
+  published_date?: Date | string
   created_at?: Date | string
 }
 
@@ -486,6 +510,7 @@ export type PublicacionScalarWhereInput = {
   content?: Prisma.StringNullableFilter<"Publicacion"> | string | null
   published?: Prisma.BoolNullableFilter<"Publicacion"> | boolean | null
   userId?: Prisma.IntFilter<"Publicacion"> | number
+  published_date?: Prisma.DateTimeFilter<"Publicacion"> | Date | string
   created_at?: Prisma.DateTimeFilter<"Publicacion"> | Date | string
 }
 
@@ -494,6 +519,7 @@ export type PublicacionCreateManyUserInput = {
   title: string
   content?: string | null
   published?: boolean | null
+  published_date?: Date | string
   created_at?: Date | string
 }
 
@@ -501,6 +527,7 @@ export type PublicacionUpdateWithoutUserInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  published_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -509,6 +536,7 @@ export type PublicacionUncheckedUpdateWithoutUserInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  published_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -517,6 +545,7 @@ export type PublicacionUncheckedUpdateManyWithoutUserInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  published_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -528,6 +557,7 @@ export type PublicacionSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   content?: boolean
   published?: boolean
   userId?: boolean
+  published_date?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["publicacion"]>
@@ -538,6 +568,7 @@ export type PublicacionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   content?: boolean
   published?: boolean
   userId?: boolean
+  published_date?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["publicacion"]>
@@ -548,6 +579,7 @@ export type PublicacionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   content?: boolean
   published?: boolean
   userId?: boolean
+  published_date?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["publicacion"]>
@@ -558,10 +590,11 @@ export type PublicacionSelectScalar = {
   content?: boolean
   published?: boolean
   userId?: boolean
+  published_date?: boolean
   created_at?: boolean
 }
 
-export type PublicacionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "content" | "published" | "userId" | "created_at", ExtArgs["result"]["publicacion"]>
+export type PublicacionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "content" | "published" | "userId" | "published_date" | "created_at", ExtArgs["result"]["publicacion"]>
 export type PublicacionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -583,6 +616,7 @@ export type $PublicacionPayload<ExtArgs extends runtime.Types.Extensions.Interna
     content: string | null
     published: boolean | null
     userId: number
+    published_date: Date
     created_at: Date
   }, ExtArgs["result"]["publicacion"]>
   composites: {}
@@ -1013,6 +1047,7 @@ export interface PublicacionFieldRefs {
   readonly content: Prisma.FieldRef<"Publicacion", 'String'>
   readonly published: Prisma.FieldRef<"Publicacion", 'Boolean'>
   readonly userId: Prisma.FieldRef<"Publicacion", 'Int'>
+  readonly published_date: Prisma.FieldRef<"Publicacion", 'DateTime'>
   readonly created_at: Prisma.FieldRef<"Publicacion", 'DateTime'>
 }
     

@@ -57,7 +57,7 @@ export declare class AuthService {
             updated_at: Date;
             deleted_at: Date | null;
         };
-        acessToken: string;
+        accessToken: string;
         refreshToken: string;
     }>;
     validateUser(email: string, password: string): Promise<({
